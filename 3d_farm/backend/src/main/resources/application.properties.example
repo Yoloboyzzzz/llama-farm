@@ -1,0 +1,54 @@
+# ===============================
+# Server Configuration
+# ===============================
+spring.application.name = slicerdb
+server.port=8080
+
+# ===============================
+# PostgreSQL Database Connection
+# ===============================
+spring.datasource.url=jdbc:postgresql://localhost:5432/slicerdb
+spring.datasource.username=postgres
+spring.datasource.password=YOUR_DB_PASSWORD
+
+spring.servlet.multipart.enabled=true
+spring.servlet.multipart.max-file-size=10000MB
+spring.servlet.multipart.max-request-size=10000MB
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQLDialect
+
+spring.sql.init.mode=always
+
+# ===============================
+# Local Paths
+# ===============================
+slicer.prusa.executable=C:/Program Files/Prusa3D/PrusaSlicer/prusa-slicer-console.exe
+slicer.prusa.defaultConfig=C:/path/to/your/prusa_config.ini
+slicer.output.root=C:/path/to/temp_gcode
+
+printer.profiles.base-path=C:/path/to/3d_farm/backend/src/main/java/be/ucll/config/printerconfigs
+
+# ===============================
+# Label Printer
+# ===============================
+label.printer.url=http://YOUR_LABEL_PRINTER_IP:8765/api/print/namebadge
+label.printer.enabled=true
+
+# ===============================
+# Email (Gmail SMTP)
+# ===============================
+# Use a Gmail App Password (Google Account -> Security -> App Passwords)
+spring.mail.host=smtp.gmail.com
+spring.mail.port=587
+spring.mail.username=your@gmail.com
+spring.mail.password=YOUR_GMAIL_APP_PASSWORD
+spring.mail.properties.mail.smtp.auth=true
+spring.mail.properties.mail.smtp.starttls.enable=true
+
+app.base-url=https://your-domain.be
+app.mail.from=your@gmail.com
+
+# ===============================
+# JWT
+# ===============================
+# Generate with: openssl rand -base64 32
+jwt.secret=YOUR_BASE64_ENCODED_256BIT_SECRET
